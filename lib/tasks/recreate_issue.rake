@@ -19,12 +19,11 @@ desc <<-END_DESC
 Send reminders about issues due in the next days.
 
 Available options:
-  * id     => id of issue that must be recreated
-  * ids    => multiple id of issues listed in the separator (not space)
+  * id     => single id of issue that must be recreated or multiple id of issues listed in the separator (not space)
 Example:
   rake redmine:recreate_issue id=123 RAILS_ENV="production"
 or
-  rake redmine:recreate_issue ids=123,456,678 RAILS_ENV="production"
+  rake redmine:recreate_issue id=123,456,678 RAILS_ENV="production"
   
 END_DESC
 require File.expand_path(File.dirname(__FILE__) + "/../../../../../config/environment")
@@ -56,12 +55,8 @@ end
 
 namespace :redmine do
   task :recreate_issue => :environment do
-    if ENV['id']
-      IssueRecreator.recreate(ENV['id'].to_i)
-    elsif ENV['ids']
-      ENV['ids'].scan(/\d+/).each do |id|
-        IssueRecreator.recreate(id)
-      end
+    if ENV['id']scan(/\d+/).each do |id|
+      IssueRecreator.recreate(id)
     end      
   end
 end
