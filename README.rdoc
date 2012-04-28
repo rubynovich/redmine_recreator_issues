@@ -1,6 +1,6 @@
 = Re-creator issues for Redmine
 
-This plugin add new tasks for re-create issues (with reset old status and recalculation start_date and due_date, without attachments). Useful for repetitive issues.
+This plugin add new tasks for re-create issues (with reset old status, and recalculation start_date and due_date, and without attachments). Useful for repetitive issues.
 
 = Install
 
