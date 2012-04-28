@@ -27,7 +27,8 @@ The plugin runs as a rake task so you have to set it up in cron or task sheduler
 1 0 * * *       root    cd /opt/redmine && rake redmine:create_issue id=235 RAILS_ENV=production
 
 Available options:
-  * id    => single id of issue that must be recreated or multiple id of issues listed in the separator (not space)
+  * id    => single id of issue that must be recreated 
+             or multiple id of issues listed in the separator (not space)
 
 Example:
   rake redmine:recreate_issue id=123 RAILS_ENV="production"
