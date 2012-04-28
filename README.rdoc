@@ -1,0 +1,37 @@
+= Re-creator issues for Redmine
+
+This plugin add new tasks for re-create issues (with reset old status and recalculation start_date and due_date, without attachments). Useful for repetitive issues.
+
+= Install
+
+  script/plugin install git://github.com/rubynovich/redmine_recreator_issues.git
+
+*or*
+
+  cd vendor/plugins
+  git clone git://github.com/rubynovich/redmine_recreator_issues.git
+
+= Update
+
+  script/plugin update redmine_recreator_issues
+
+*or*
+
+  cd vendor/plugins/redmine_recreator_issues
+  git pull
+
+= Usage
+
+The plugin runs as a rake task so you have to set it up in cron or task sheduler
+
+1 0 * * *       root    cd /opt/redmine && rake redmine:create_issue id=235 RAILS_ENV=production
+
+Available options:
+  * id    => id of issue that must be recreated
+  * ids   => multiple id of issues listed in the separator (not space)
+
+Example:
+  rake redmine:recreate_issue id=123 RAILS_ENV="production"
+or
+  rake redmine:recreate_issue ids=123,456,678 RAILS_ENV="production"
+
