@@ -55,9 +55,11 @@ end
 
 namespace :redmine do
   task :recreate_issue => :environment do
-    if ENV['id'].scan(/\d+/).each do |id|
-      IssueRecreator.recreate(id)
-    end      
+    if ENV['id'].present?
+      ENV['id'].scan(/\d+/).each do |id|
+        IssueRecreator.recreate(id)
+      end      
+    end
   end
 end
 
