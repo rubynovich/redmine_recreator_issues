@@ -49,6 +49,11 @@ class IssueRecreator
       ),
       :priority => old_issue.priority,
       :assigned_to => old_issue.assigned_to)
+      
+    old_issue.watcher_users.each do |user|
+      issue.add_watcher(user)
+    end
+    
     puts "#{Time.now} - Recreated issue ##{old_issue.id} as ##{issue.id}"
   end
 end
