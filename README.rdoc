@@ -1,3 +1,9 @@
+= Пересоздатель задач (модуль для Redmine)
+
+Пересоздает задачи (issues), которые имеют периодическую структуру (релиз, отчетность, встречи). Модуль реализован в виде rake-задачи redmine:recreate_issue, которой нужно лишь указать нужную задачу/задачи.
+
+Статус пересозданной задачи сбрасывается на IssueStatus.default, а время выполнения (start_date и due_date) -- пересчитываются.
+
 = Re-creator issues for Redmine
 
 This plugin add new tasks for re-create issues (with reset old status, and recalculation start_date and due_date, and without attachments). Useful for repetitive issues.
